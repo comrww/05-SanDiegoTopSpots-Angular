@@ -1,1 +1,43 @@
-This is something new
+<head>
+	<meta charset="utf-8">
+	<title>San Diego Top Spots</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+	<header>
+		<h1 class="heading">San Diego's Top Spots</h1>
+	</header>
+		<span class="flex-container" id="my-main-span" style="width:80%">
+			<table class="flex-item" id="table">
+  					<td id="output"></td> 								
+  			</table>​
+				<script src="bower_components/jquery/dist/jquery.js"</script>
+				<script type="text/javascript" src="index.js">
+				</script>
+				<script type="text/javascript">
+					$(document).ready(function() {
+
+							$.getJSON("https://raw.githubusercontent.com/OriginCodeAcademy/2016-CW-FallCohort/master/Projects/Week%201/04-SanDiegoTopSpots/topspots.json", function(data) {
+								console.log("it worked");
+
+									$("#output").append("<tr><th>Name</th><th>Description</th><th>Link</th></tr>");
+
+									$(data).each(function(index, value) {
+
+											$("#output").append('<tr><td>' + value.name + '</td><td>' + value.description
+												+ '</td><td><a target="_blank" href="https://www.google.com/maps?q=' + value.location + '">View on Google Maps</a></td></tr>');
+
+									});
+
+
+							});
+					});
+				</script>
+		</span>
+	<body>
+				
+	</body>
+
+<footer>
+
+</footer>
